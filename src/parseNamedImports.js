@@ -1,0 +1,24 @@
+function createNamedImport(str = "") {
+  const asIdx = str.indexOf("as");
+
+  if (asIdx < 0) {
+    const name = str.trim();
+    return { name, alias: name };
+  }
+
+  const alias = str.substring(asIdx + 2).trim();
+  const name = str.substring(0, asIdx).trim();
+
+  return { name, alias };
+}
+
+export default function parseNamedImports(str = "") {
+  const startCurlyIdx = str.indexOf("{");
+  const endCurlyIdx = str.indexOf("}");
+
+  return str
+    .substring(startCurlyIdx + 1, endCurlyIdx - 1)
+    .split(",")
+    .filter(Boolean)
+    .map(createNamedImport);
+}

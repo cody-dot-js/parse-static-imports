@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it matches the snapshot for each fixture 1`] = `
+Object {
+  "fixtureName": "App.jsx",
+  "result": Array [
+    Object {
+      "defaultImport": "React",
+      "moduleName": "react",
+      "namedImports": Array [
+        Object {
+          "alias": "foo",
+          "name": "useState",
+        },
+        Object {
+          "alias": "useCallback",
+          "name": "useCallback",
+        },
+        Object {
+          "alias": "useContext",
+          "name": "useContext",
+        },
+        Object {
+          "alias": "useEffect",
+          "name": "useEffect",
+        },
+        Object {
+          "alias": "useLayoutEffect",
+          "name": "useLayoutEffect",
+        },
+        Object {
+          "alias": "useMemo",
+          "name": "useMemo",
+        },
+        Object {
+          "alias": "useRef",
+          "name": "useRef",
+        },
+        Object {
+          "alias": "useReducer",
+          "name": "useReducer",
+        },
+      ],
+      "sideEffectOnly": false,
+      "starImport": "",
+    },
+    Object {
+      "defaultImport": "",
+      "moduleName": "react-dom",
+      "namedImports": Array [
+        Object {
+          "alias": "render",
+          "name": "render",
+        },
+      ],
+      "sideEffectOnly": false,
+      "starImport": "",
+    },
+    Object {
+      "defaultImport": "",
+      "moduleName": "./logo.svg",
+      "namedImports": Array [],
+      "sideEffectOnly": false,
+      "starImport": "logos",
+    },
+  ],
+}
+`;
+
+exports[`it matches the snapshot for each fixture 2`] = `
+Object {
+  "fixtureName": "index.jsx",
+  "result": Array [
+    Object {
+      "defaultImport": "React",
+      "moduleName": "react",
+      "namedImports": Array [],
+      "sideEffectOnly": false,
+      "starImport": "",
+    },
+    Object {
+      "defaultImport": "",
+      "moduleName": "react-dom",
+      "namedImports": Array [
+        Object {
+          "alias": "render",
+          "name": "render",
+        },
+      ],
+      "sideEffectOnly": false,
+      "starImport": "",
+    },
+    Object {
+      "defaultImport": "App",
+      "moduleName": "./App",
+      "namedImports": Array [],
+      "sideEffectOnly": false,
+      "starImport": "",
+    },
+    Object {
+      "defaultImport": "",
+      "moduleName": "./serviceWorker",
+      "namedImports": Array [],
+      "sideEffectOnly": false,
+      "starImport": "serviceWorker",
+    },
+  ],
+}
+`;
