@@ -64,8 +64,11 @@ Object {
       "starImport": "logos",
     },
     Object {
+      "defaultImport": "",
       "moduleName": "./App.css",
+      "namedImports": Array [],
       "sideEffectOnly": true,
+      "starImport": "",
     },
   ],
 }
@@ -95,8 +98,11 @@ Object {
       "starImport": "",
     },
     Object {
+      "defaultImport": "",
       "moduleName": "./index.css",
+      "namedImports": Array [],
       "sideEffectOnly": true,
+      "starImport": "",
     },
     Object {
       "defaultImport": "App",

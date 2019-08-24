@@ -14,7 +14,11 @@ export default function parse(file = "") {
     .reduce((acc, str) => {
       const sideEffectOnly = isSideEffectOnly(str);
       const imports = sideEffectOnly
-        ? {}
+        ? {
+            starImport: "",
+            namedImports: [],
+            defaultImport: ""
+          }
         : {
             starImport: parseStarImport(str),
             namedImports: parseNamedImports(str),

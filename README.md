@@ -72,6 +72,9 @@ export default App;
   },
   {
     "moduleName": "./App.css",
+    "starImport": "",
+    "namedImports": [],
+    "defaultImport": "",
     "sideEffectOnly": true
   }
 ]
@@ -127,6 +130,9 @@ serviceWorker.unregister();
   },
   {
     "moduleName": "./index.css",
+    "starImport": "",
+    "namedImports": [],
+    "defaultImport": "",
     "sideEffectOnly": true
   },
   {
