@@ -8,19 +8,25 @@ import isSideEffectOnly from "./isSideEffectOnly";
 export default function parse(file = "") {
   return file
     .split("import")
+    .map(str => `import ${str}`)
     .filter(importLike)
     .map(str => str.trim())
-    .reduce(
-      (acc, str) => [
+    .reduce((acc, str) => {
+      const sideEffectOnly = isSideEffectOnly(str);
+      const imports = sideEffectOnly
+        ? {}
+        : {
+            starImport: parseStarImport(str),
+            namedImports: parseNamedImports(str),
+            defaultImport: parseDefaultImport(str)
+          };
+      return [
         ...acc,
         {
           moduleName: parseModuleName(str),
-          starImport: parseStarImport(str),
-          namedImports: parseNamedImports(str),
-          defaultImport: parseDefaultImport(str),
-          sideEffectOnly: isSideEffectOnly(str)
+          ...imports,
+          sideEffectOnly
         }
-      ],
-      []
-    );
+      ];
+    }, []);
 }

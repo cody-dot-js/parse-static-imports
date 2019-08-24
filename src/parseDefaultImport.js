@@ -3,9 +3,9 @@ export default function parseDefaultImport(str = "") {
   const starIdx = str.indexOf("*");
   const fromIdx = str.indexOf("from");
   const importIdx = str.indexOf("import");
-  const startIdx = importIdx < 0 ? 0 : importIdx + 6;
+  const startIdx = importIdx + 6;
 
-  if (starIdx >= 0) {
+  if (starIdx >= 0 || fromIdx < 0 || importIdx < 0) {
     return "";
   }
 

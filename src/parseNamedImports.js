@@ -16,6 +16,10 @@ export default function parseNamedImports(str = "") {
   const startCurlyIdx = str.indexOf("{");
   const endCurlyIdx = str.indexOf("}");
 
+  if (startCurlyIdx < 0 || endCurlyIdx < 0) {
+    return [];
+  }
+
   return str
     .substring(startCurlyIdx + 1, endCurlyIdx - 1)
     .split(",")

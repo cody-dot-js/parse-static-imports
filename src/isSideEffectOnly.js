@@ -1,18 +1,11 @@
-import parseModuleName from "./parseModuleName";
-
 export default function isSideEffectOnly(str = "") {
   const importIdx = str.indexOf("import");
+  const quoteIdx = str.replace(/(\'|\`)+/gm, '"').indexOf('"'); // eslint-disable-line no-useless-escape
 
-  if (!str) {
-    return false;
-  }
+  const semiColonIdx = str.indexOf(";");
+  const startIdx = importIdx >= 0 ? importIdx + 6 : 0;
 
-  if (importIdx >= 0) {
-    return str
-      .replace(/\s+/gm, "")
-      .replace(/(`|"|')+/gm, '"')
-      .startsWith('import"');
-  }
+  const betweenImportAndQuote = str.substring(startIdx, quoteIdx).trim();
 
-  return str && str.trim() === parseModuleName(str);
+  return semiColonIdx >= 0 && betweenImportAndQuote.length === 0;
 }

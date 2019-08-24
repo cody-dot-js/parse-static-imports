@@ -63,6 +63,10 @@ Object {
       "sideEffectOnly": false,
       "starImport": "logos",
     },
+    Object {
+      "moduleName": "./App.css",
+      "sideEffectOnly": true,
+    },
   ],
 }
 `;
@@ -89,6 +93,10 @@ Object {
       ],
       "sideEffectOnly": false,
       "starImport": "",
+    },
+    Object {
+      "moduleName": "./index.css",
+      "sideEffectOnly": true,
     },
     Object {
       "defaultImport": "App",
