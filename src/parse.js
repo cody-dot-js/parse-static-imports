@@ -24,6 +24,7 @@ export default function parse(file = "") {
             namedImports: parseNamedImports(str),
             defaultImport: parseDefaultImport(str)
           };
+
       return [
         ...acc,
         {

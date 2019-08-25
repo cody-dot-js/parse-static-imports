@@ -12,7 +12,8 @@ test("when given a sideEffectOnly static import it returns true", () => {
   const sideEffectOnlyImports = [
     'import "./index.css";',
     "import './index.css';",
-    "import `./index.css';`"
+    "import `./index.css';`",
+    'import "./without-trailing-semicolon"'
   ];
 
   sideEffectOnlyImports.forEach(str => {
