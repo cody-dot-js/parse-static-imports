@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it matches the snapshot for each fixture 1`] = `
+exports[`it matches the snapshot for each app example fixture 1`] = `
 Object {
-  "fixtureName": "App.jsx",
+  "name": "App.jsx",
   "result": Array [
     Object {
       "defaultImport": "React",
@@ -74,9 +74,9 @@ Object {
 }
 `;
 
-exports[`it matches the snapshot for each fixture 2`] = `
+exports[`it matches the snapshot for each app example fixture 2`] = `
 Object {
-  "fixtureName": "index.jsx",
+  "name": "index.jsx",
   "result": Array [
     Object {
       "defaultImport": "React",
