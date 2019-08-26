@@ -1,14 +1,14 @@
 export default function parseModuleName(str = "") {
   const normalized = str.replace(/(\'|\`)+/gm, '"'); // eslint-disable-line no-useless-escape
   const importIdx = normalized.indexOf("import");
-  const quoteIdx = normalized.indexOf('"');
-  const semiColonIdx = normalized.indexOf(";");
+  const startQuoteIdx = normalized.indexOf('"');
+  const endQuoteIdx = normalized.indexOf('"', startQuoteIdx + 1);
 
-  if (importIdx < 0 || semiColonIdx < 0 || quoteIdx < 0) {
+  if (importIdx < 0 || startQuoteIdx < 0 || endQuoteIdx < 0) {
     return "";
   }
 
   return normalized
-    .substring(quoteIdx, semiColonIdx)
-    .replace(/(\;|\"|\s)+/gm, ""); // eslint-disable-line no-useless-escape
+    .substring(startQuoteIdx, endQuoteIdx)
+    .replace(/(\"|\s)+/gm, ""); // eslint-disable-line no-useless-escape
 }
