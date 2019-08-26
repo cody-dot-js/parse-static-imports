@@ -28,11 +28,11 @@ npm install --save parse-static-imports
 
 ```js
 import fs from "fs";
-import parseImports from "parse-static-imports";
+import parseStaticImports from "parse-static-imports";
 
 const file = fs.readFileSync("./path/to/file.js", "utf8");
 
-const results = parseImports(file);
+const results = parseStaticImports(file);
 
 console.log(JSON.stringify(results, null, 2));
 ```
@@ -40,7 +40,7 @@ console.log(JSON.stringify(results, null, 2));
 ## parseStaticImports
 
 - `file`: `String` - Contents of a file containing static imports
-- returns: `Object[]`
+- returns: `Object[]` - List of static imports found in the given file contents
 
 The parseStaticImports() method returns a a list of objects whose properties
 represent significant elements of the static import.

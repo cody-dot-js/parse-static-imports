@@ -1,4 +1,4 @@
-import parse from "./parse";
+import parse from "./parseStaticImports";
 
 export default parse;
 

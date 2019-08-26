@@ -5,7 +5,14 @@ import parseDefaultImport from "./parseDefaultImport";
 import parseNamedImports from "./parseNamedImports";
 import isSideEffectOnly from "./isSideEffectOnly";
 
-export default function parse(file = "") {
+/** parseStaticImports
+ * The parseStaticImports() method returns a a list of objects whose properties
+ * represent significant elements of the static import.
+ *
+ * @param {String} file - Contents of a file containing static imports
+ * @returns {Object[]} - List of static imports found in the given file contents
+ */
+export default function parseStaticImports(file = "") {
   return file
     .split("import")
     .map(str => `import ${str}`)
