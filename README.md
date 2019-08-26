@@ -2,6 +2,24 @@
 
 Gracefully parse ECMAScript [static imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 💃
 
+Will properly parse:
+
+- default imports
+- star imports, e.g. `import * as Foo from "foo";`
+- named imports, even with an alias!
+- side effect only imports, e.g. `import "./App.css";`
+- multi-line imports, like:
+
+  ```jsx
+  import React, {
+    useState,
+    useCallback,
+    useEffect
+  } from "react";
+  ```
+
+## Installation
+
 ```sh
 npm install --save parse-static-imports
 ```
@@ -18,6 +36,30 @@ const results = parseImports(file);
 
 console.log(JSON.stringify(results, null, 2));
 ```
+
+## parseStaticImports
+
+- `file`: `String` - Contents of a file containing static imports
+- returns: `Object[]`
+
+The parseStaticImports() method returns a a list of objects whose properties
+represent significant elements of the static import.
+
+The returned list of objects will have the following properties:
+
+| Attribute      | Type       | Default Value | Description                                                             |
+| -------------- | ---------- | ------------- | ----------------------------------------------------------------------- |
+| moduleName     | `String`   | N/A           | The name of the module imported or a relative path (e.g. `"react-dom"`) |
+| starImport     | `String`   | `""`          | The name of the star imported module object, if present                 |
+| namedImports   | `Object[]` | `[]`          | List of named imports as a list of objects                              |
+| defaultImport  | `String`   | `""`          | The name of the default import, if present                              |
+| sideEffectOnly | `Boolean`  | false         | If the import was side-effect only (e.g. `import "./App.css";`)         |
+
+Named import objects have the form:
+| Attribute | Default Value | Description                                                                                                                                                                      |
+| --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name      | N/A           | The name of the named import (e.g. `{ useState }`)                                                                                                                               |
+| alias     | name          | Will be the alias of a named import if aliased, otherwise defaults to the named import (e.g. `import { foo /* the named import */ as bar /* the alias */ } from "module-name";`) |
 
 ## Example
 

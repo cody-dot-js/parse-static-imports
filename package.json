@@ -1,7 +1,7 @@
 {
   "name": "parse-static-imports",
   "description": "Gracefully parse ECMAScript static imports 💃",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Cody A Price <dev.cprice@gmail.com>",
   "bugs": {
     "url": "https://github.com/dev-cprice/parse-static-imports/issues"
