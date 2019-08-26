@@ -18,8 +18,8 @@ test("when given a default import and named imports it returns the named imports
       alias: "useEffect"
     }
   ];
-  const defaultImport = 'import React, { useState, useEffect } from "react";';
-  const result = parseNamedImports(defaultImport);
+  const importExample = 'import React, { useState, useEffect } from "react";';
+  const result = parseNamedImports(importExample);
 
   expect(result).toStrictEqual(expected);
 });
@@ -35,8 +35,8 @@ test("when given named imports only it returns the named imports", () => {
       alias: "useEffect"
     }
   ];
-  const defaultImport = 'import { useState, useEffect } from "react";';
-  const result = parseNamedImports(defaultImport);
+  const importExample = 'import { useState, useEffect } from "react";';
+  const result = parseNamedImports(importExample);
 
   expect(result).toStrictEqual(expected);
 });
@@ -48,24 +48,42 @@ test("when given an aliased named import it returns the aliased named imports", 
       alias: "useFoo"
     }
   ];
-  const defaultImport = 'import { useState as useFoo } from "react";';
-  const result = parseNamedImports(defaultImport);
+  const importExample = 'import { useState as useFoo } from "react";';
+  const result = parseNamedImports(importExample);
+
+  expect(result).toStrictEqual(expected);
+});
+
+test("when given an aliased named import with 'as' in the name it returns the aliased named imports", () => {
+  const expected = [
+    {
+      name: "asFoo",
+      alias: "asBar"
+    },
+    {
+      name: "asImport",
+      alias: "asImport"
+    }
+  ];
+  const importExample =
+    'import { asFoo as asBar, asImport } from "module-name";';
+  const result = parseNamedImports(importExample);
 
   expect(result).toStrictEqual(expected);
 });
 
 test("when given a default import it returns an empty list", () => {
   const expected = [];
-  const defaultImport = 'import React from "react";';
-  const result = parseNamedImports(defaultImport);
+  const importExample = 'import React from "react";';
+  const result = parseNamedImports(importExample);
 
   expect(result).toStrictEqual(expected);
 });
 
 test("when given a star import it returns an empty list", () => {
   const expected = [];
-  const defaultImport = 'import * as myPrecious from "react";';
-  const result = parseNamedImports(defaultImport);
+  const importExample = 'import * as myPrecious from "react";';
+  const result = parseNamedImports(importExample);
 
   expect(result).toStrictEqual(expected);
 });
