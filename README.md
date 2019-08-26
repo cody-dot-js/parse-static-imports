@@ -56,10 +56,11 @@ The returned list of objects will have the following properties:
 | sideEffectOnly | `Boolean`  | false         | If the import was side-effect only (e.g. `import "./App.css";`)         |
 
 Named import objects have the form:
-| Attribute | Default Value | Description                                                                                                                                                                      |
-| --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name      | N/A           | The name of the named import (e.g. `{ useState }`)                                                                                                                               |
-| alias     | name          | Will be the alias of a named import if aliased, otherwise defaults to the named import (e.g. `import { foo /* the named import */ as bar /* the alias */ } from "module-name";`) |
+
+| Attribute | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| name | `String` | N/A | The name of the named import (e.g. `{ useState }`) |
+| alias | `String` | name | Will be the alias of a named import if aliased, otherwise defaults to the named import (e.g. `import { foo /* the named import */ as bar /* the alias */ } from "module-name";`) |
 
 ## Example
 

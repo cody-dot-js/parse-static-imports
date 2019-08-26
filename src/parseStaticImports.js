@@ -6,11 +6,11 @@ import parseNamedImports from "./parseNamedImports";
 import isSideEffectOnly from "./isSideEffectOnly";
 
 /** parseStaticImports
- * The parseStaticImports() method returns a a list of objects whose properties
- * represent significant elements of the static import.
+ * returns a a list of objects whose properties represent significant elements
+ * of the static import.
  *
  * @param {String} file - Contents of a file containing static imports
- * @returns {Object[]} - List of static imports found in the given file contents
+ * @returns {Object[]} List of static imports found in the given file contents
  */
 export default function parseStaticImports(file = "") {
   return file
