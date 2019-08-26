@@ -18,6 +18,8 @@ Will properly parse:
   } from "react";
   ```
 
+while ignoring commented out imports (both line and block comments).
+
 ## Installation
 
 ```sh
@@ -57,10 +59,10 @@ The returned list of objects will have the following properties:
 
 Named import objects have the form:
 
-| Attribute | Type | Default Value | Description |
-| --- | --- | --- | --- |
-| name | `String` | N/A | The name of the named import (e.g. `{ useState }`) |
-| alias | `String` | name | Will be the alias of a named import if aliased, otherwise defaults to the named import (e.g. `import { foo /* the named import */ as bar /* the alias */ } from "module-name";`) |
+| Attribute | Type     | Default Value | Description                                                                                                                                                                      |
+| --------- | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name      | `String` | N/A           | The name of the named import (e.g. `{ useState }`)                                                                                                                               |
+| alias     | `String` | name          | Will be the alias of a named import if aliased, otherwise defaults to the named import (e.g. `import { foo /* the named import */ as bar /* the alias */ } from "module-name";`) |
 
 ## Example
 
