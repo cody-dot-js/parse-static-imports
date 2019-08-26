@@ -58,14 +58,15 @@ test("when given an aliased named import with 'as' in the name it returns the al
   const expected = [
     {
       name: "asFoo",
-      alias: "asFoo"
+      alias: "asBar"
     },
     {
-      name: "asBar",
-      alias: "asBaz"
+      name: "asImport",
+      alias: "asImport"
     }
   ];
-  const importExample = 'import { asFoo, asBar as asBaz } from "module-name";';
+  const importExample =
+    'import { asFoo as asBar, asImport } from "module-name";';
   const result = parseNamedImports(importExample);
 
   expect(result).toStrictEqual(expected);
