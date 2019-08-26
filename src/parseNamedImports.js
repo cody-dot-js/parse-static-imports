@@ -1,12 +1,12 @@
 function createNamedImport(str = "") {
-  const asIdx = str.indexOf("as");
+  const asIdx = str.indexOf(" as ");
 
   if (asIdx < 0) {
     const name = str.trim();
     return { name, alias: name };
   }
 
-  const alias = str.substring(asIdx + 2).trim();
+  const alias = str.substring(asIdx + 4).trim();
   const name = str.substring(0, asIdx).trim();
 
   return { name, alias };
